@@ -15,6 +15,7 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person;
     private boolean drawn;
 
     /**
@@ -26,6 +27,7 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        person = new Person();
         drawn = false;
     }
 
@@ -56,6 +58,10 @@ public class Picture
             sun.moveVertical(-40);
             sun.changeSize(80);
             sun.makeVisible();
+            
+            person.moveHorizontal(-140);
+            person.moveVertical(100);
+            person.makeInvisible();
             drawn = true;
         }
     }
@@ -85,5 +91,7 @@ public class Picture
     public void sunset()
     {
         sun.slowMoveVertical(300);
+        person.makeVisible();
+        person.slowMoveVertical(-100);
     }
 }
